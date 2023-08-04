@@ -1,13 +1,13 @@
 # PT. FAN Integrasi Teknologi - Abby Darda Damarullah
 
-![Node.js Version](https://img.shields.io/badge/Node.js-v18.16.0-green)
-![Express Version](https://img.shields.io/badge/Express-4.18.2-blue)
+[![Node.js Version](https://img.shields.io/badge/Node.js-v18.16.0-green)](https://nodejs.org/)
+[![Express Version](https://img.shields.io/badge/Express-4.18.2-blue)](https://expressjs.com/)
 
-Ini adalah API untuk test backend developer PT. FAN Integrasi Teknologi.
+Ini adalah API untuk pengujian backend developer PT. FAN Integrasi Teknologi.
 
 ## Case Logika
 
-Untuk case logika ada di dalam folder logika
+Semua case logika dapat ditemukan di dalam folder `logika`.
 
 ## Dokumentasi
 
@@ -33,38 +33,37 @@ Dokumentasi API dapat diakses melalui Swagger UI yang berjalan pada endpoint `/a
    touch .env
    ```
 
-Contoh isi file `.env`:
+   Contoh isi file `.env`:
 
-```env
- APP_PORT=3001
- DB_URI=postgres://user:password@localhost:5432/db_name
- DB_DIALECT=postgres
- JWT_SECRET=super-secret
- JWT_EXP=1d
-```
+   ```env
+   APP_PORT=3001
+   DB_URI=postgres://user:password@localhost:5432/db_name
+   DB_DIALECT=postgres
+   JWT_SECRET=super-secret
+   JWT_EXP=1d
+   ```
 
 4. Buat file `.env.development` dan `.env.testing` untuk tahap development dan test, dan isi dengan konfigurasi yang sesuai.
 
-Contoh isi file `.env.development`:
+   Contoh isi file `.env.development`:
 
-```env
-APP_PORT=3001
-DB_URI=postgres://user:password@localhost:5432/db_name_dev
-DB_DIALECT=postgres
-JWT_SECRET=super-secret
-JWT_EXP=1d
-```
+   ```env
+   APP_PORT=3001
+   DB_URI=postgres://user:password@localhost:5432/db_name_dev
+   DB_DIALECT=postgres
+   JWT_SECRET=super-secret
+   JWT_EXP=1d
+   ```
 
-Contoh isi file `.env.testing`:
+   Contoh isi file `.env.testing`:
 
-```env
-APP_PORT=3001
-DB_URI=postgres://user:password@localhost:5432/db_name_test
-DB_DIALECT=postgres
-JWT_SECRET=super-secret
-JWT_EXP=1d
-
-```
+   ```env
+   APP_PORT=3001
+   DB_URI=postgres://user:password@localhost:5432/db_name_test
+   DB_DIALECT=postgres
+   JWT_SECRET=super-secret
+   JWT_EXP=1d
+   ```
 
 5. Install dependensi yang diperlukan:
 
@@ -72,28 +71,27 @@ JWT_EXP=1d
    npm install
    ```
 
-````
+6. Jalankan migrasi:
 
-6. jalankan migrasi:
+   ```bash
+   NODE_ENV=development npm run migrate:up    # untuk tahap development
+   NODE_ENV=production npm run migrate:up     # untuk tahap production
+   NODE_ENV=development npm run migrate:undo  # untuk tahap development
+   NODE_ENV=production npm run migrate:undo   # untuk tahap production
+   ```
 
-```bash
-NODE_ENV=development npm run migrate:up //untuk stage development
-NODE_ENV=production npm run migrate:up //untuk stage production
-NODE_ENV=development npm run migrate:undo //untuk stage development
-NODE_ENV=production npm run migrate:undo //untuk stage production
-```
+7. Jalankan seeder:
 
-7. jalankan seeder
-```bash
-NODE_ENV=development npm run seed:all //untuk stage development
-NODE_ENV=production npm run seed:undo:all //untuk stage production
-```
+   ```bash
+   NODE_ENV=development npm run seed:all         # untuk tahap development
+   NODE_ENV=production npm run seed:undo:all    # untuk tahap production
+   ```
 
 ## Menjalankan Aplikasi
 
 ### Tahap Production
 
-1. Jalankan aplikasi dalam mode development:
+1. Jalankan aplikasi dalam mode production:
 
    ```bash
    npm run start
@@ -120,4 +118,3 @@ NODE_ENV=production npm run seed:undo:all //untuk stage production
    ```
 
    Unit test akan dieksekusi dan hasilnya akan ditampilkan di konsol.
-````
